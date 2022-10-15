@@ -14,7 +14,6 @@ sudo apt install plexmediaserver -y
 
 sudo systemctl start plexmediaserver
 sudo systemctl enable plexmediaserver
-sudo systemctl status plexmediaserver
 
 # WIP: Add nftables firewall rules
 ./plex-script-files/nftables.conf > /etc/nftables.conf
