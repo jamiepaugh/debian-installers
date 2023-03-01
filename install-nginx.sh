@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install prerequisites
-apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring certbot python3-certbot-nginx
 
 # Import official nginx signing key
 curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor \
