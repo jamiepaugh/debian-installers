@@ -1,10 +1,12 @@
 #!/bin/bash
 
-ARRINSTALL=./plex-files/ArrInstall.sh
-
 function installDependencies(){
     apt update
-    apt install apt-transport-https dirmngr gnupg ca-certificates curl wget gnupg2 git python3-setuptools ufw -y
+    apt install software-properties-common
+    add-apt-repository contrib
+    add-apt-repository non-free
+    apt update
+    apt install apt-transport-https dirmngr gnupg ca-certificates curl wget gnupg2 git python3-setuptools ufw sabnzbdplus python3-sabyenc par2 -y
 }
 
 function installArrsuite(){
@@ -27,7 +29,7 @@ function installArrsuite(){
     for i in {1..4}
     do
         #echo "$i"
-        printf "$i\n\n\n" | bash $ARRINSTALL
+        printf "$i\n\nplex\n" | bash ./plex-files/ArrInstall.sh
     done
 
     # Install Sonarr
@@ -77,6 +79,16 @@ function installUFW(){
     ufw enable
     ufw reload
     ufw status
+}
+
+function installSabnzbd(){
+    
+    cp ./plex-files/sabnzbd.service /etc/systemd/system/
+    systemctl daemon-reload
+    adduser --system --home /home/sabnzbd --group plex
+    systemctl start sabnzbd
+    systemctl enable sabnzbd
+
 }
 
 installDependencies
