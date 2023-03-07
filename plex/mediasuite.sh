@@ -29,7 +29,7 @@ function installArrsuite(){
     for i in {1..4}
     do
         #echo "$i"
-        printf "$i\n\nplex\n" | bash ./plex-files/ArrInstall.sh
+        printf "$i\n\nplex\n1\n\n" | bash ./plex-files/ArrInstall.sh
     done
 
     # Install Sonarr
