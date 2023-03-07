@@ -35,7 +35,6 @@ function installArrsuite(){
     # Install Sonarr
     apt-get update
     apt install sonarr -y
-    printf("\n\r      \rplex\n")
 }
 
 function installPlex(){
@@ -94,7 +93,7 @@ function installSabnzbd(){
 
 installDependencies
 installPlex
-#installArrsuite
-#installTautulli
-#installSabnzbd
-#installUFW
+installArrsuite
+installTautulli
+installSabnzbd
+installUFW
