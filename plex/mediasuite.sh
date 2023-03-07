@@ -85,7 +85,6 @@ function installSabnzbd(){
     
     cp ./plex-files/sabnzbd.service /etc/systemd/system/
     systemctl daemon-reload
-    adduser --system --home /home/sabnzbd --group plex
     systemctl start sabnzbd
     systemctl enable sabnzbd
 
@@ -94,6 +93,6 @@ function installSabnzbd(){
 installDependencies
 installPlex
 installArrsuite
-installTautulli
 installSabnzbd
 installUFW
+installTautulli
