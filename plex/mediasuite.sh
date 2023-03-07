@@ -73,3 +73,9 @@ function installUFW(){
     ufw reload
     ufw status
 }
+
+installDependencies
+installPlex
+installArrsuite
+installTautulli
+installUFW
