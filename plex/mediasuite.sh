@@ -68,7 +68,7 @@ function installTautulli(){
 
 function installUFW(){
 
-    allowPorts=(22 32400 9696 7878 8989 8686 8787 8181 8080)
+    allowPorts=(22 32400 9696 7878 8989 8686 8787 8181 8081)
     # Deny all traffic
     ufw default deny
     for i in "${allowPorts[@]}"
