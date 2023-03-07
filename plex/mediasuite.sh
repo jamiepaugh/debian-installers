@@ -6,7 +6,8 @@ function installDependencies(){
     add-apt-repository contrib
     add-apt-repository non-free
     apt update
-    apt install apt-transport-https dirmngr gnupg ca-certificates curl wget gnupg2 git python3-setuptools ufw sabnzbdplus python3-sabyenc par2 -y
+    apt install apt-transport-https dirmngr gnupg ca-certificates curl wget gnupg2 git python3-setuptools ufw sabnzbdplus python3-sabyenc par2 snapd install transmission-daemon -y
+    snap install overseerr
 }
 
 function installArrsuite(){
@@ -68,10 +69,10 @@ function installTautulli(){
 
 function installUFW(){
 
-    allowPorts=(22 32400 9696 7878 8989 8686 8787 8181 8081)
+    allowedPorts=(22 32400 9696 7878 8989 8686 8787 8181 8081 9091)
     # Deny all traffic
     ufw default deny
-    for i in "${allowPorts[@]}"
+    for i in "${allowedPorts[@]}"
     do
         ufw allow $i
     done
