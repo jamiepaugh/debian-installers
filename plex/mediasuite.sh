@@ -2,7 +2,7 @@
 
 function installDependencies(){
     apt update
-    apt install software-properties-common
+    apt install software-properties-common -y
     add-apt-repository contrib
     add-apt-repository non-free
     apt update
@@ -34,7 +34,8 @@ function installArrsuite(){
 
     # Install Sonarr
     apt-get update
-    apt install sonarr
+    apt install sonarr -y
+    printf("\n\r      \rplex\n")
 }
 
 function installPlex(){
@@ -93,6 +94,7 @@ function installSabnzbd(){
 
 installDependencies
 installPlex
-installArrsuite
-installTautulli
-installUFW
+#installArrsuite
+#installTautulli
+#installSabnzbd
+#installUFW
