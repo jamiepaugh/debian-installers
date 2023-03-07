@@ -22,7 +22,7 @@ function installArrsuite(){
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
     echo "deb https://apt.sonarr.tv/debian buster main" | sudo tee /etc/apt/sources.list.d/sonarr.list
     apt update
-    
+
     # Install Lidarr, Prowlarr, Radarr, Readarr
     for i in {1..4}
     do
@@ -65,16 +65,15 @@ function installTautulli(){
 }
 
 function installUFW(){
+
+    allowPorts=(22 32400 9696 7878 8989 8686 8787 8181 8080)
     # Deny all traffic
     ufw default deny
-    # 8181 Tautulli
-    # 8787
-    # 8686 Lidarr
-    # 8989 Sonarr
-    # 7878 Radarr
-    # 9696 Prowlarr
-    # 9091 Transmission
-    ufw allow 22, 32400, 9696, 7878, 8989, 8686, 8787, 8181, 8080 
+    for i in "${allowPorts[@]}"
+    do
+        ufw allow $i
+    done
+    
     ufw enable
     ufw reload
     ufw status
