@@ -34,7 +34,7 @@ function installArrsuite(){
 
     # Install Sonarr
     apt-get update
-    apt install sonarr
+    apt install sonarr -y
 }
 
 function installPlex(){
