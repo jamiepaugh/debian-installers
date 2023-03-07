@@ -20,7 +20,7 @@ function installArrsuite(){
 
     # Install Sonarr Repo
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 2009837CBFFD68F45BC180471F4F90DE2A9B4BF8
-    echo "deb https://apt.sonarr.tv/debian buster main" | sudo tee /etc/apt/sources.list.d/sonarr.list
+    echo "deb https://apt.sonarr.tv/debian buster main" |  tee /etc/apt/sources.list.d/sonarr.list
     apt update
 
     # Install Lidarr, Prowlarr, Radarr, Readarr
@@ -54,12 +54,12 @@ function installTautulli(){
     # Install from GitHub
     cd /opt
     git clone https://github.com/Tautulli/Tautulli.git
-    addgroup tautulli && sudo adduser --system --no-create-home tautulli --ingroup tautulli
+    addgroup tautulli &&  adduser --system --no-create-home tautulli --ingroup tautulli
     chown -R tautulli:tautulli /opt/Tautulli
 
     # Create systemd service
     cp /opt/Tautulli/init-scripts/init.systemd /lib/systemd/system/tautulli.service
-    systemctl daemon-reload && sudo systemctl enable tautulli.service
+    systemctl daemon-reload &&  systemctl enable tautulli.service
     systemctl start tautulli.service
 
 }
@@ -73,7 +73,7 @@ function installUFW(){
     do
         ufw allow $i
     done
-    
+
     ufw enable
     ufw reload
     ufw status
