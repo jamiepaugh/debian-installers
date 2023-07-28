@@ -5,8 +5,8 @@ apt install gnupg2 -y
 
 # Add NGINX's repo
 apt-key add nginx_signing.key
-echo "deb http://nginx.org/packages/ubuntu focal nginx
-deb-src http://nginx.org/packages/ubuntu focal nginx" >> /etc/apt/sources.list
+echo "deb http://nginx.org/packages/debian bookworm nginx
+deb-src http://nginx.org/packages/debian bookworm nginx" >> /etc/apt/sources.list
 
 # Install
 apt update -y
