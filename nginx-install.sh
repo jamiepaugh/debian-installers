@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install prerequisites
-apt install gnupg2 certbot python3-certbot-nginx -y
+apt install gnupg2 -y
 
 # Add NGINX's repo
 apt-key add nginx_signing.key
