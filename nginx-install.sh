@@ -11,7 +11,5 @@ deb-src http://nginx.org/packages/debian bookworm nginx" >> /etc/apt/sources.lis
 
 # Install
 apt update -y
-apt install nginx -y
-apt install certbot -y
-apt install python3-certbot-nginx -y
+apt install nginx certbot python3-certbot-nginx -y
 systemctl enable nginx 
