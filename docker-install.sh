@@ -2,7 +2,7 @@
 
 # Install dependencies
 apt update
-apt install ca-certificates curl gnupg
+apt install ca-certificates curl gnupg -y
 
 # Install Docker Offical GPG key
 install -m 0755 -d /etc/apt/keyrings
@@ -17,7 +17,7 @@ echo \
 
 # Update Docker Offical repo
 apt update
-apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
 
 # Profit
 docker run hello-world
